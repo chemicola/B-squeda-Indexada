@@ -18,7 +18,9 @@ print(datos.head()) # Muestra las primeras 5 filas.
 # y combina varias columnas en una sola cadena de texto.
 def combinar_caracteristicas(fila):
     return f"{fila['director']} {fila['cast']} {fila['listed_in']} {fila['description']}"
-datos["características"] = datos.apply(combinar_caracteristicas, axis=1)
+datos["características"] = datos.apply(combinar_caracteristicas, axis=1) # Representa todas estas características juntas.
 
-
+# 4. Convertir texto a números.
+tfdif = TfidfVectorizer(stop_words="english") # Creamos un objeto que convierte texto en números.
+matriz_tdfif = tfdif.fit_transform(datos["características"]) # Convertimos la columna "características" en una matriz de números.
 
