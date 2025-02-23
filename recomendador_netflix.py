@@ -24,3 +24,5 @@ datos["características"] = datos.apply(combinar_caracteristicas, axis=1) # Repr
 tfdif = TfidfVectorizer(stop_words="english") # Creamos un objeto que convierte texto en números.
 matriz_tdfif = tfdif.fit_transform(datos["características"]) # Convertimos la columna "características" en una matriz de números.
 
+# 5. Calcular la similitud entre películas.
+similitud_coseno = cosine_similarity(matriz_tdfif, matriz_tdfif) # Resultado: Una tabla (matriz) donde cada número indica qué tan similares son dos películas.
